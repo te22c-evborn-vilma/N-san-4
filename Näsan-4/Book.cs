@@ -2,11 +2,18 @@ public class Book
 {
     public string name;
     public int pages;
-    public int currentPage = 0;
+    private int currentPage = 0;
 
     public void TurnPage()
     {
+        GetCurrentPage();
         currentPage++;
+    }
+
+    // steg 3
+    public int GetCurrentPage()
+    {
+        return currentPage;
     }
 
 }

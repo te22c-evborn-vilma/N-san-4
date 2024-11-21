@@ -16,9 +16,9 @@ Book thirdBook = new()
 };
 
 // Punkt 2
-Console.WriteLine(firstBook.currentPage);
+Console.WriteLine(firstBook.GetCurrentPage());
 firstBook.TurnPage();
-Console.WriteLine(firstBook.currentPage);
+Console.WriteLine(firstBook.GetCurrentPage());
 
 
 
