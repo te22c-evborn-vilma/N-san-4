@@ -25,52 +25,97 @@ for (int k = 0; k < 42; k++)
 }
 Console.WriteLine(firstBook.GetCurrentPage());
 
-string answer = "";
+// Punkt 6
+List<Rock> rockList = new();
+Console.WriteLine("How many rocks do you want to create?");
+int number;
 
-bool success = false;
-List<Rock> rocks = new();
-while (success != true)
+while (!int.TryParse(Console.ReadLine(), out number) || number <= 0)
 {
-    Console.WriteLine("How many rocks do you want to create?");
-    answer = Console.ReadLine();
-    int number;
-    success = int.TryParse(answer, out number);
-    for (int i = 0; i < number; i++)
-    {
-        bool great = false;
-        while (great != true)
-        {
-            Console.WriteLine(i + 1 + ") How much weight do you want the rock to have?");
-            string choice = Console.ReadLine();
-            int heaviness;
-            great = int.TryParse(choice, out heaviness);
-            Rock myRock = new(heaviness);
-            rocks.Add(myRock);
-        }
-    }
+    Console.WriteLine("Please write a possible number of stones.");
 }
 
-// Punkt 7
-Worker firstWorker = new();
-BlueCollar firstBC = new();
-WhiteCollar firstWC = new();
+for (int i = 0; i < number; i++)
+{
+    int Weight;
+    Console.WriteLine($"How much weight do you want rock {i + 1}) to have?"); 
 
-firstWorker.SetName("Me");
-firstWorker.SetWage(12);
-Console.WriteLine(firstWorker.GetName() + " | " + firstWorker.GetAge() + " | " + firstWorker.GetWage());
+    while (!int.TryParse(Console.ReadLine(), out Weight) || Weight <= 0)
+    {
+        Console.WriteLine("Please write a positive number for the rock's weight.");
+    }
 
-firstBC.SetName("You");
-firstBC.SetWage(13);
-Console.WriteLine(firstBC.GetName() + " | " + firstBC.GetAge() + " | " + firstBC.GetWage());
+    Rock rock = new Rock(Weight);
+    rockList.Add(rock);
+}
 
-firstWC.SetName("They");
-firstWC.SetWage(14);
-Console.WriteLine(firstWC.GetName() + " | " + firstWC.GetAge() + " | " + firstWC.GetWage());
-
-foreach (var rock in rocks)
+foreach (Rock rock in rockList)
 {
     Console.WriteLine($"Rock: {rock.GetWeight()}");
 }
+
+// Punkt 7
+Worker worker = new Worker();
+BlueCollar blueCollar = new BlueCollar();
+WhiteCollar whiteCollar = new WhiteCollar();
+
+Console.WriteLine("Pick a name for Worker.");
+worker.Name = Console.ReadLine();
+
+Console.WriteLine("Write Worker's age.");
+while (!int.TryParse(Console.ReadLine(), out worker.Age) || worker.Age <= 0)
+{
+    Console.WriteLine("Please write a possible age.");
+}
+
+Console.WriteLine("Write Worker's wage.");
+while (!int.TryParse(Console.ReadLine(), out int wage) || wage <= 0)
+{
+    Console.WriteLine("Please write a possible wage.");
+}
+// worker.SetWage(wage);
+Console.WriteLine($"\nWorker - {worker.GetName()} | Age: {worker.GetAge()} | Wage: {worker.GetWage()}");
+
+
+// Blue Collar Worker
+Console.WriteLine("Pick a name for Blue Collar Worker.");
+blueCollar.Name = Console.ReadLine();
+
+Console.WriteLine("Write Blue Collar Worker's age.");
+while (!int.TryParse(Console.ReadLine(), out blueCollar.Age) || blueCollar.Age <= 0)
+{
+    Console.WriteLine("Please write a possible age.");
+}
+
+Console.WriteLine("Write Blue Collar Worker's wage.");
+while (!int.TryParse(Console.ReadLine(), out int wage) || wage <= 0)
+{
+    Console.WriteLine("Please write a possible wage.");
+}
+// blueCollar.SetWage(wage);
+Console.WriteLine($"\nWorker - {blueCollar.GetName()} | Age: {blueCollar.GetAge()} | Wage: {blueCollar.GetWage()}");
+
+// White Collar Worker
+Console.WriteLine("Pick a name for White Collar Worker.");
+whiteCollar.Name = Console.ReadLine();
+
+Console.WriteLine("Write White Collar Worker's age.");
+while (!int.TryParse(Console.ReadLine(), out whiteCollar.Age) || whiteCollar.Age <= 0)
+{
+    Console.WriteLine("Please write a possible age.");
+}
+
+Console.WriteLine("Write White Collar Worker's wage.");
+while (!int.TryParse(Console.ReadLine(), out int wage) || wage <= 0)
+{
+    Console.WriteLine("Please write a possible wage.");
+}
+// whiteCollar.SetWage(wage);
+Console.WriteLine($"\nWorker - {whiteCollar.GetName()} | Age: {whiteCollar.GetAge()} | Wage: {whiteCollar.GetWage()}");
+
+whiteCollar.DrinkCoffee();
+
+
 
 // Punkt 8
 List<Hardware> hardwares = new();

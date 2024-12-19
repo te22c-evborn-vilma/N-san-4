@@ -8,13 +8,4 @@ public class Processor : Hardware
         _cores = cores;
         _clockSpeed = clockSpeed;
     }
-
-    // public void GetCores (int c)
-    // {
-    //     c = _cores;
-    // }
-    // public void GetClockSpeed (int s)
-    // {
-    //     s = _clockSpeed;
-    // }
 }

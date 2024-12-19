@@ -8,13 +8,4 @@ public class Hardware
         Name = name;
         Price = price;
     }
-
-    // public void GetName(string n)
-    // {
-    //     n = Name;
-    // }
-    // public void GetPrice(int p)
-    // {
-    //     p = Price;
-    // }
 }

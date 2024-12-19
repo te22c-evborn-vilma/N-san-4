@@ -1,16 +1,18 @@
 public class Worker
 {
-    private string Name = "";
-    private int Age = 30;
-    private int Wage = 0;
+    public string Name;
+    public int Age;
+    public int Wage = 0;
 
-    public void SetWage(int w)
+    public Worker()
     {
-        w = Wage;
+        Name = "";
+        Age = 0;
     }
-    public void SetName(string x)
+
+    public void SetWage(int wage)
     {
-        x = Name;
+        Wage = wage;
     }
 
     public string GetName()

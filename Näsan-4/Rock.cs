@@ -1,14 +1,14 @@
 public class Rock
 {
-    private int Weight;
+    private int _weight;
 
-    public Rock(int w)
+    public Rock(int Weight)
     {
-        w = Weight;
+        this._weight = Weight;
     }
 
     public int GetWeight()
     {
-        return Weight;
+        return _weight;
     }
 }
