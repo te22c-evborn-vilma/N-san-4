@@ -1,14 +1,19 @@
 public class HardDrive : Hardware
 {
-    private int _space;
-    private string _type;
+    private int _size;
+    // private string _type;
 
-    public void GetSpace (int sp)
+    public HardDrive (string name, int price, int size) : base(name, price)
     {
-        sp = _space;
+        size = _size;
     }
-    public void GetType (string t)
-    {
-        t = _type;
-    }
+
+    // public void GetSpace (int sp)
+    // {
+    //     sp = _space;
+    // }
+    // public void GetType (string t)
+    // {
+    //     t = _type;
+    // }
 }

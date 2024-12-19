@@ -79,72 +79,62 @@ while (true)
 {
     Console.WriteLine("Choose type of hardware to create");
     Console.WriteLine("1. Hard Drive | 2. Processor | 3. Graphics Card | 4. End");
-
     string choice = Console.ReadLine();
-    bool successfull = false;
 
     if (choice == "1")
     {
         Console.WriteLine("Name the Hard Drive");
         string name = Console.ReadLine();
 
-        while (successfull == false)
+        Console.WriteLine("Set the price of the Hard Drive");
+        int price;
+        while (!int.TryParse(Console.ReadLine(),out price))
         {
-            Console.WriteLine("Set the price of the Hard Drive");
-            string priceAnswer = Console.ReadLine();
-            int price;
-            successfull = int.TryParse(priceAnswer, out price);
-        }
-        successfull = false;
-        
-        while (successfull == false)
-        {
-            Console.WriteLine("Decide the size of the Hard Drive (GB)");
-            string sizeAnswer = Console.ReadLine();
-            int size;
-            successfull = int.TryParse(sizeAnswer, out size);
+            Console.WriteLine("Try again");
+            Console.WriteLine("Set the price: ");
         }
         
-        
-        Console.WriteLine("Choose a type of Hard Drive (SSD/HDD)");
-        string type = Console.ReadLine();
+        Console.WriteLine("Decide the size of the Hard Drive (GB)");
+        int size;
+        while (!int.TryParse(Console.ReadLine(), out size))
+        {
+            Console.WriteLine("Try again");
+            Console.WriteLine("Decide the size: ");
+        }
 
-
-        Hardware hardDrive = new HardDrive();
+        Hardware hardDrive = new HardDrive(name, price, size);
         hardwares.Add(hardDrive);
     }
     else if (choice == "2")
     {
         Console.WriteLine("Name the Processor");
         string name = Console.ReadLine();
-
-        while (successfull == false)
+            
+        Console.WriteLine("Set the price of the Processor");
+        int price;
+        while (!int.TryParse(Console.ReadLine(),out price))
         {
-            Console.WriteLine("Set the price of the Processor");
-            string priceAnswer = Console.ReadLine();
-            int price;
-            successfull = int.TryParse(priceAnswer, out price);
-        }
-        successfull = false;
-        
-        while (successfull == false)
-        {
-            Console.WriteLine("Decide the number of Cores");
-            string coresAnswer = Console.ReadLine();
-            int cores;
-            successfull = int.TryParse(coresAnswer, out cores);
-        }
-        successfull = false;
-        
-        while (successfull == false)
-        {
-            Console.WriteLine("Decide the Processors Clock Speed");
-            string speedAnswer = Console.ReadLine();
-            int speed;
-            successfull = int.TryParse(speedAnswer, out speed);
+            Console.WriteLine("Try again");
+            Console.WriteLine("Set the price: ");
         }
 
-        Hardware processor = new Processor();
+        Console.WriteLine("Decide the number of Cores");
+        int cores;
+        while (!int.TryParse(Console.ReadLine(), out cores))
+        {
+            Console.WriteLine("Try again");
+            Console.WriteLine("Decide the number of cores: ");
+        }
+
+        Console.WriteLine("Decide the Processor's clock speed");
+        int clockSpeed;
+        while (!int.TryParse(Console.ReadLine(), out clockSpeed))
+        {
+            Console.WriteLine("Try again");
+            Console.WriteLine("Decide the clock speed: ");
+        }
+        
+        Hardware processor = new Processor(name, price, cores, clockSpeed);
         hardwares.Add(processor);
     }
     else if (choice == "3")
@@ -152,33 +142,23 @@ while (true)
         Console.WriteLine("Name the Graphics Card");
         string name = Console.ReadLine();
 
-        while (successfull == false)
+        Console.WriteLine("Set the price of the Graphics Card");
+        int price;
+        while (!int.TryParse(Console.ReadLine(),out price))
         {
-            Console.WriteLine("Set the price of the Graphics Card");
-            string priceAnswer = Console.ReadLine();
-            int price;
-            successfull = int.TryParse(priceAnswer, out price);
+            Console.WriteLine("Try again");
+            Console.WriteLine("Set the price: ");
         }
-        successfull = false;
         
-        while (successfull == false)
+        Console.WriteLine("Decide the memory size of the Graphics Card (GB)");
+        int memory;
+        while (!int.TryParse(Console.ReadLine(),out memory))
         {
-            Console.WriteLine("Decide the memory size of the Graphics Card (GB)");
-            string memoryAnswer = Console.ReadLine();
-            int memory;
-            successfull = int.TryParse(memoryAnswer, out memory);
-        }
-        successfull = false;
-        
-        while (successfull == false)
-        {
-            Console.WriteLine("Set the Graphics Card's resolution");
-            string resolutionAnswer = Console.ReadLine();
-            int resolution;
-            successfull = int.TryParse(resolutionAnswer, out resolution);
+            Console.WriteLine("Try again");
+            Console.WriteLine("Decide the memory size: ");
         }
 
-        Hardware graphicsCard = new GraphicsCard();
+        Hardware graphicsCard = new GraphicsCard(name, price, memory);
         hardwares.Add(graphicsCard);
     }
     else if (choice == "4")
@@ -190,6 +170,5 @@ while (true)
         Console.WriteLine("Try again");
     }
 }
-
 
 Console.ReadLine();

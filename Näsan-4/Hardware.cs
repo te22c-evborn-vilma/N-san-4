@@ -1,14 +1,20 @@
 public class Hardware
 {
-    public string Name = "";
+    public string Name;
     public int Price;
+
+    public Hardware(string name, int price)
+    {
+        Name = name;
+        Price = price;
+    }
 
     // public void GetName(string n)
     // {
-    //     n = _name;
+    //     n = Name;
     // }
     // public void GetPrice(int p)
     // {
-    //     p = _price;
+    //     p = Price;
     // }
 }
