@@ -50,9 +50,30 @@ while (success != true)
     }
 }
 
-// foreach (var rock in rocks)
-// {
-//     Console.WriteLine(rock.GetWeight);
-// }
+// Punkt 7
+Worker firstWorker = new();
+BlueCollar firstBC = new();
+WhiteCollar firstWC = new();
+
+firstWorker.SetName("Me");
+firstWorker.SetWage(12);
+Console.WriteLine(firstWorker.GetName() + " | " + firstWorker.GetAge() + " | " + firstWorker.GetWage());
+
+firstBC.SetName("You");
+firstBC.SetWage(13);
+Console.WriteLine(firstBC.GetName() + " | " + firstBC.GetAge() + " | " + firstBC.GetWage());
+
+firstWC.SetName("They");
+firstWC.SetWage(14);
+Console.WriteLine(firstWC.GetName() + " | " + firstWC.GetAge() + " | " + firstWC.GetWage());
+
+foreach (var rock in rocks)
+{
+    Console.WriteLine($"Rock: {rock.GetWeight()}");
+}
+
+// Punkt 8
+
+
 
 Console.ReadLine();
